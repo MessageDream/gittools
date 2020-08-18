@@ -27,7 +27,7 @@ _std_commit() {
 	shift 1
 
 	local uname=$(git_current_user_name)
-	final="$typ【$uname】"
+	final="【$uname】$typ"
 
 	# only one comment
 	if [[ $# == 1 ]]; then

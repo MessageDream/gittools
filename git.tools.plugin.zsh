@@ -10,7 +10,8 @@
 # perf:     性能优化（performance）
 # tmp:      临时提交
 
-emoji=true
+emoji=false
+uname=false
 
 _std_commit() {
 	if [[ $# < 2 ]]; then
@@ -26,8 +27,12 @@ _std_commit() {
 
 	shift 1
 
-	local uname=$(git_current_user_name)
-	final="【$uname】$typ"
+	if [[ $uname == false ]] ; then
+		final="$typ"
+	else
+		local gname=$(git_current_user_name)
+		final="【$gname】$typ"
+	fi
 
 	# only one comment
 	if [[ $# == 1 ]]; then

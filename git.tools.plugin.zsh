@@ -1,14 +1,16 @@
 ######## git commit easy cmd ########
 
-# feat:     新功能（feature）
-# fix:      修补bug
-# docs:     文档（documentation）
-# style:    格式（不影响代码运行的变动）
-# refactor: 重构（即不是新增功能，也不是修改bug的代码变动）
-# test:     增加测试
-# chore:    构建过程或辅助工具的变动
-# perf:     性能优化（performance）
-# tmp:      临时提交
+# Add = 向代码仓库中添加新的内容（feature, test等）
+# Drop = 移除代码仓库中的内容（feature, test等）
+# Fix = 修复代码仓库中存在的问题（bug，typo，misstatement等）
+# Revert = 回滚历史的某条提交
+# Make = 修改编译流程相关文件，工具等（例如Makefile，代码生成器等）
+# Optimize = 修改只与性能优化相关
+# Document = 修改只与文档/注释相关
+# Refactor = 修改只能包含代码重构（不能新增/删除/修改任何API）
+# Reformat = 修改只能包含代码格式的变化（使用格式化工具格式化代码等）
+# Rearrange =  修改仅包含工程组织结构的变化
+# Style = 更新UI和样式文件
 
 emoji=false
 uname=false
@@ -36,6 +38,7 @@ _std_commit() {
 
 	# only one comment
 	if [[ $# == 1 ]]; then
+		# echo "git commit -m \"$final $1\""
 		git commit -m "$final $1"
 		return
 	fi
@@ -51,19 +54,23 @@ _std_commit() {
 	git commit -m "$final"
 }
 
-gcmm-feat()     { _std_commit "feat:🎸" $@     }
-gcmm-fix()      { _std_commit "fix:🐛" $@      }
-gcmm-docs()     { _std_commit "docs:✏️" $@     }
-gcmm-style()    { _std_commit "style:💄" $@    }
-gcmm-refactor() { _std_commit "refactor:💡" $@ }
-gcmm-test()     { _std_commit "test:💍" $@     }
-gcmm-chore()    { _std_commit "chore:🤖" $@    }
-gcmm-perf()     { _std_commit "perf:⚡️" $@     }
-gcmm-tmp() {
+gcmm-add()     { _std_commit "Add:🎸" $@     }
+gcmm-drop()     { _std_commit "Drop:🔥" $@     }
+gcmm-fix()      { _std_commit "Fix:🐛" $@      }
+gcmm-docs()     { _std_commit "Document:✏️" $@     }
+gcmm-revert()    { _std_commit "Revert:⏪" $@    }
+gcmm-make()    { _std_commit "Make:👷" $@    }
+gcmm-optimize()     { _std_commit "Optimize:⚡️" $@     }
+gcmm-refactor() { _std_commit "Refactor:💡" $@ }
+gcmm-reformat() { _std_commit "Reformat:🎨" $@ }
+gcmm-rearrange() { _std_commit "Rearrange:🚚" $@ }
+gcmm-style()    { _std_commit "Style:💄" $@    }
+gcmm-test()     { _std_commit "Test:✅" $@     }
+
+gcmm-tmp(){
 	if [[ $# == 0 ]]; then
-		_std_commit "tmp:🈳" "临时提交"
+		_std_commit "Tmp:🈳" "临时提交"
 		return
 	fi
-	_std_commit "tmp:🈳" $@
+	_std_commit "Tmp:🈳" $@
 }
-

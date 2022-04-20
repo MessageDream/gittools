@@ -23,9 +23,9 @@ _std_commit() {
 	fi
 	typ=$1
 	
-	if [[ $emoji == false ]] ; then
-		typ=${typ%?}
-	fi
+	# if [[ $emoji == false ]] ; then
+	# 	typ=${typ%?}
+	# fi
 
 	shift 1
 
@@ -54,18 +54,18 @@ _std_commit() {
 	git commit -m "$final"
 }
 
-gcmm-add()     { _std_commit "Add:🎸" $@     }
-gcmm-drop()     { _std_commit "Drop:🔥" $@     }
-gcmm-fix()      { _std_commit "Fix:🐛" $@      }
-gcmm-docs()     { _std_commit "Document:✏️" $@     }
-gcmm-revert()    { _std_commit "Revert:⏪" $@    }
-gcmm-make()    { _std_commit "Make:👷" $@    }
-gcmm-optimize()     { _std_commit "Optimize:⚡️" $@     }
-gcmm-refactor() { _std_commit "Refactor:💡" $@ }
-gcmm-reformat() { _std_commit "Reformat:🎨" $@ }
-gcmm-rearrange() { _std_commit "Rearrange:🚚" $@ }
-gcmm-style()    { _std_commit "Style:💄" $@    }
-gcmm-test()     { _std_commit "Test:✅" $@     }
+gcmm-add()     { _std_commit "Add:" $@     }
+gcmm-drop()     { _std_commit "Drop:" $@     }
+gcmm-fix()      { _std_commit "Fix:" $@      }
+gcmm-docs()     { _std_commit "Document:" $@     }
+gcmm-revert()    { _std_commit "Revert:" $@    }
+gcmm-make()    { _std_commit "Make:" $@    }
+gcmm-optimize()     { _std_commit "Optimize:" $@     }
+gcmm-refactor() { _std_commit "Refactor:" $@ }
+gcmm-reformat() { _std_commit "Reformat:" $@ }
+gcmm-rearrange() { _std_commit "Rearrange:" $@ }
+gcmm-style()    { _std_commit "Style:" $@    }
+gcmm-test()     { _std_commit "Test:" $@     }
 
 gcmm-tmp(){
 	if [[ $# == 0 ]]; then
